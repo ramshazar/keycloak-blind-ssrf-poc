@@ -1,6 +1,6 @@
-# Keycloak Blind SSRF POC
+# Keycloak Blind SSRF POC 
 
-This is a step by step walk-through about how to test the blind ssrf found by Lauritz Holtmann and documented in his [blog post](https://security.lauritz-holtmann.de/post/sso-security-ssrf/).  
+This is a step by step walk-through about how to test the Blind SSRF [(CVE-2020-10770)](https://nvd.nist.gov/vuln/detail/CVE-2020-10770) found by Lauritz Holtmann and documented in his [blog post](https://security.lauritz-holtmann.de/post/sso-security-ssrf/).  
 He also [briefly explained how to test it](https://twitter.com/_lauritz_/status/1347246269631238145). This is just a more detailed explanation.
 
 All credits go to [Lauritz](https://twitter.com/_lauritz_).
